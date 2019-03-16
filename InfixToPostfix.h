@@ -16,8 +16,6 @@ public :
 
   void RPN(QString);
 
-  bool ParanthesisChecker();
-
 };
 
 #endif // PARSER_H

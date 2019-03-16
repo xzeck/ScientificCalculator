@@ -3,6 +3,8 @@
 
 bool Checker::HasBalancedParanthesis()
 {
+
+  //BUG : Need to go through testing, might causes a crash
   for(auto x : Checker::Exp)
     {
       if(x == '(')
