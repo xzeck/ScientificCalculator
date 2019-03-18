@@ -33,13 +33,7 @@ void Parse::ParseFunction()
           GeneratedParseString = "";
           IsParsedStringFull = false;
         }
+    }
 
-    }
-  unsigned long Size = ParsedStack.size();
-  qDebug() << "Parsed Stack";
-  for(unsigned long i = 0; i<Size; i++)
-    {
-      qDebug() << ParsedStack.top();
-      ParsedStack.pop();
-    }
+  //TODO : Generate a post-fix string the given stack
 }
