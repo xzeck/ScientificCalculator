@@ -26,6 +26,7 @@ bool IsOperand(QCharRef C);
 void InfixToPostFix::RPN(QString Input)
 {
 
+  qDebug() << "Exp : " << Input;
   postfix = InfixToPostfix(Input);
   qDebug() << postfix;
 }

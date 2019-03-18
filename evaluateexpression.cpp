@@ -5,7 +5,7 @@
 #include <QString>
 #include <QDebug>
 
-
+//FIXME : Expression evaluation neglects multi-digit numbers
 QString Eval::FinalVal()
 {
    std::stack<QString> ExpressionStack;

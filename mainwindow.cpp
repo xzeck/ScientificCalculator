@@ -2,8 +2,10 @@
 #include "ui_mainwindow.h"
 #include "InfixToPostfix.h"
 #include "paranthesischecker.h"
-#include <evaluateexpression.h>
+#include "parser.h"
 
+
+#include <evaluateexpression.h>
 #include <QMessageBox>
 #include <QDebug>
 
@@ -67,17 +69,18 @@ void MainWindow::NumPressed()
 
 void MainWindow::on_btEq_clicked()
 {
-  InfixToPostFix p;
+  InfixToPostFix C;
   Checker c(ui->Display->text());
   Eval E;
+  Parse P(ui->Display->text());
 
   if(c.HasBalancedParanthesis())
     {
-      p.RPN(ui->Display->text());
+      C.RPN(ui->Display->text());
       QString Val = E.FinalVal();
+      P.ParseFunction();
       ui->Display->setText(Val);
     }
-
   else
     {
       //FIXME : Fix the geometry of the Error Box
