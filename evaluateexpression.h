@@ -7,7 +7,6 @@
 
 class Eval
 {
-std::stack<QString> PostFixStack = PostFixStack;
 public :
 
   QString FinalVal();

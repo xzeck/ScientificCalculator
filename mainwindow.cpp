@@ -70,16 +70,17 @@ void MainWindow::on_btEq_clicked()
 {
 
   Checker c(ui->Display->text());
-  //Eval E;
-  Parse P(ui->Display->text());
-  P.ParseFunction();
+  Eval E;
+  QString ExpressionToParse ="(";
+  ExpressionToParse += ui->Display->text();
+  ExpressionToParse += ")";
+  Parse P(ExpressionToParse);
 
   if(c.HasBalancedParanthesis())
     {
-
-      //QString Val = E.FinalVal();
-      //P.ParseFunction();
-      ui->Display->setText("0");
+      P.ParseFunction();
+      QString Val = E.FinalVal();
+      ui->Display->setText(Val);
     }
   else
     {
@@ -114,4 +115,9 @@ void MainWindow::on_btDel_clicked()
     }
 
   ui->Display->setText(Display);
+}
+
+void MainWindow::on_btClr_clicked()
+{
+    ui->Display->clear();
 }

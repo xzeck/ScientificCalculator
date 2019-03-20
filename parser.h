@@ -6,6 +6,7 @@
 extern std::stack<QString> ParsedStack;
 extern std::stack<QString> TempPostFixStack;
 extern std::stack<QString> OperatorHoldStack;
+extern std::stack<QString> PostFixStack;
 extern QList<QString> List;
 
 class Parse

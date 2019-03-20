@@ -1,68 +1,103 @@
 #include "evaluateexpression.h"
+#include "parser.h"
 
 #include <stack>
 #include <QString>
 #include <QDebug>
+#include <QList>
+
 
 //FIXME : Expression evaluation neglects multi-digit numbers
 QString Eval::FinalVal()
 {
-   std::stack<QString> ExpressionStack;
-   QString x;
-   QString op1;
-   QString op2;
-   double Result = 0.0;
+  std::stack<QString> EvaluationStack;
+  QList<QString> List;
+  QString x;
+  QString op1, op2;
+  QString Result;
 
-   QList<QString> List;
-   List.append("+");
-   List.append("-");
-   List.append("*");
-   List.append("/");
+  List.append("+");
+  List.append("-");
+  List.append("*");
+  List.append("/");
+  //unsigned long Size = PostFixStack.size();
+  //for(unsigned long i =0;i<Size; i++)
+  //  {
+  //    qDebug() << PostFixStack.top();
+  //    PostFixStack.pop();
+  //  }
+  //
+  //return "Something" ;
 
-   /*for(auto x : postfix)
-     {
-       ExpressionStack.push(x);
-     }
-
-   //qDebug() <<  ExpressionStack.size();
-
-  for(unsigned long i = 0; i<ExpressionStack.size(); i++)
+  while(!PostFixStack.empty())
     {
-      x = ExpressionStack.top();
-      ExpressionStack.pop();
+      x = PostFixStack.top();
+      PostFixStack.pop();
+      /*if(x == '(')
+        {
+          x = TempPostFixStack.top();
+          TempPostFixStack.pop();
+        }*/
 
       if(List.contains(x))
         {
-          op1 = ExpressionStack.top();
-          ExpressionStack.pop();
-          op2 = ExpressionStack.top();
-          ExpressionStack.pop();
-          QString temp = static_cast<QString>(x);
-          QByteArray QB = temp.toLocal8Bit();
+          char *oper = x.toLocal8Bit().data();
+          switch (*oper)
+            {
+             case '+':
+              op2 = EvaluationStack.top();
+              EvaluationStack.pop();
+              op1 = EvaluationStack.top();
+              EvaluationStack.pop();
 
-          char *oper = QB.data();
-
-          switch(*oper)
-           {
-            case '+':
-              Result += op1.toDouble() + op2.toDouble();
+              Result = QString::number(op1.toDouble() + op2.toDouble());
+              EvaluationStack.push(Result);
               break;
 
             case '-':
-              Result += op1.toDouble() - op2.toDouble();
+              op2 = EvaluationStack.top();
+              EvaluationStack.pop();
+              op1 = EvaluationStack.top();
+              EvaluationStack.pop();
+
+
+              Result = QString::number(op1.toDouble() - op2.toDouble());
+              EvaluationStack.push(Result);
               break;
 
             case '*':
-              Result += op1.toDouble() * op2.toDouble();
+              op2 = EvaluationStack.top();
+              EvaluationStack.pop();
+              op1 = EvaluationStack.top();
+              EvaluationStack.pop();
+
+              Result = QString::number(op1.toDouble() * op2.toDouble());
+              EvaluationStack.push(Result);
               break;
 
             case '/':
-              Result += op1.toDouble() / op2.toDouble();
+              op2 = EvaluationStack.top();
+              EvaluationStack.pop();
+              op1 = EvaluationStack.top();
+              EvaluationStack.pop();
+
+
+              Result = QString::number(op1.toDouble() / op2.toDouble());
+              EvaluationStack.push(Result);
               break;
-           }
+            }
+        }else
+        {
+          EvaluationStack.push(x);
         }
-
-
     }
-  return QString::number(Result);*/
+  unsigned long Size = EvaluationStack.size();
+  std::stack<QString> RevStack;
+
+  for(unsigned long i =0; i<Size; i++)
+    {
+      RevStack.push(EvaluationStack.top());
+      EvaluationStack.pop();
+    }
+  return RevStack.top();
 }

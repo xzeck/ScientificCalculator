@@ -24,6 +24,7 @@ private slots:
 
   void on_btEq_clicked();
   void on_btDel_clicked();
+  void on_btClr_clicked();
 };
 
 #endif // MAINWINDOW_H

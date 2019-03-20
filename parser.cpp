@@ -15,24 +15,25 @@ int  ParserOperatorWeight(QString);
 
 std::stack<QString> ParsedStack;
 std::stack<QString> TempPostFixStack;
+std::stack<QString> PostFixStack;
 std::stack<QString> OperatorHoldStack;
 QList<QString> List;
 
 void Parse::ParseFunction()
 {
   QString Exp = Parse::Expression;
-  std::stack<QString> TemporaryParsedStack;
-  QString GeneratedParseString = "(";
-  bool IsParsedStringFull = false;
   Exp += ")";
+  std::stack<QString> TemporaryParsedStack;
+  QString GeneratedParseString;// = "(";
+  bool IsParsedStringFull = false;
   List.append("+");
   List.append("-");
   List.append("*");
   List.append("/");
 
-  qDebug() << "Parsing";
   for(auto x : Exp)
     {
+      qDebug() << x;
       if(!List.contains(x) && x != ")" && x != "(")
         {
           GeneratedParseString += x;
@@ -49,23 +50,24 @@ void Parse::ParseFunction()
         }
     }
 
+
   unsigned long Size = TemporaryParsedStack.size();
 
   for(unsigned long i =0; i<Size; i++)
     {
+      //qDebug() << TemporaryParsedStack.top();
       ParsedStack.push(TemporaryParsedStack.top());
       TemporaryParsedStack.pop();
     }
-  qDebug() << "Calling PostFix";
-  GeneratePostFix();
 
-  qDebug() << "PostFix Stack : ";
+  GeneratePostFix();
 
   unsigned long Size_Post = TempPostFixStack.size();
 
   for(unsigned long i =0; i<Size_Post; i++)
     {
-      qDebug() << TempPostFixStack.top();
+      //qDebug() << TempPostFixStack.top();
+      PostFixStack.push(TempPostFixStack.top());
       TempPostFixStack.pop();
     }
 
