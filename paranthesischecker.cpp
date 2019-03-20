@@ -13,10 +13,7 @@ bool Checker::HasBalancedParanthesis()
         Checker::Stack.pop();
     }
 
-  if(Checker::Stack.empty())
-    return true;
-  else
-     return false;
+  return Checker::Stack.empty();
 }
 
 

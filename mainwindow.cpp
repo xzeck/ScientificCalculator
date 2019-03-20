@@ -62,7 +62,7 @@ MainWindow::~MainWindow()
 void MainWindow::NumPressed()
 {
   //WARNING : Old style casting
-  QPushButton *button = (QPushButton *)sender();
+  QPushButton *button = dynamic_cast<QPushButton *>(sender());
 
   ui->Display->setText(ui->Display->text() + button->text());
 
