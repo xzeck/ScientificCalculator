@@ -8,6 +8,8 @@
 #include <QMessageBox>
 #include <QDebug>
 
+
+
 MainWindow::MainWindow(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::MainWindow)
@@ -74,13 +76,16 @@ void MainWindow::on_btEq_clicked()
   QString ExpressionToParse ="(";
   ExpressionToParse += ui->Display->text();
   ExpressionToParse += ")";
+
   Parse P(ExpressionToParse);
 
   if(c.HasBalancedParanthesis())
     {
       P.ParseFunction();
       QString Val = E.FinalVal();
+      HistoryString += ui->Display->text() + " = " + Val+"\n";
       ui->Display->setText(Val);
+      ui->HistoryLabel->setText(HistoryString);
     }
   else
     {

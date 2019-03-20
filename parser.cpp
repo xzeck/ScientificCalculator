@@ -33,7 +33,7 @@ void Parse::ParseFunction()
 
   for(auto x : Exp)
     {
-      qDebug() << x;
+
       if(!List.contains(x) && x != ")" && x != "(")
         {
           GeneratedParseString += x;
@@ -66,7 +66,7 @@ void Parse::ParseFunction()
 
   for(unsigned long i =0; i<Size_Post; i++)
     {
-      //qDebug() << TempPostFixStack.top();
+      qDebug() << TempPostFixStack.top();
       PostFixStack.push(TempPostFixStack.top());
       TempPostFixStack.pop();
     }
@@ -125,8 +125,11 @@ void Parse::GeneratePostFix()
 
 bool ParserIsOperand(QString op)
 {
-  QRegExp re("\\d*");
+  QRegExp re("[+-]?([0-9]*[.])?[0-9]+");
+
   if(re.exactMatch(op)) return true;
+
+  //qDebug() << op << ": Return false";
   return false;
 }
 

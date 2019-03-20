@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+
+
 namespace Ui {
   class MainWindow;
 }
@@ -17,6 +19,7 @@ public:
 
 private:
   Ui::MainWindow *ui;
+  QString HistoryString = "";
 
 private slots:
   void NumPressed();
