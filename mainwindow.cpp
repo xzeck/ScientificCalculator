@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "InfixToPostfix.h"
 #include "paranthesischecker.h"
 #include "parser.h"
 
@@ -69,17 +68,18 @@ void MainWindow::NumPressed()
 
 void MainWindow::on_btEq_clicked()
 {
-  InfixToPostFix C;
+
   Checker c(ui->Display->text());
-  Eval E;
+  //Eval E;
   Parse P(ui->Display->text());
+  P.ParseFunction();
 
   if(c.HasBalancedParanthesis())
     {
-      C.RPN(ui->Display->text());
-      QString Val = E.FinalVal();
-      P.ParseFunction();
-      ui->Display->setText(Val);
+
+      //QString Val = E.FinalVal();
+      //P.ParseFunction();
+      ui->Display->setText("0");
     }
   else
     {

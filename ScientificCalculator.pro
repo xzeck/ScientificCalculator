@@ -27,14 +27,12 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    InfixToPostfix.cpp \
     paranthesischecker.cpp \
     evaluateexpression.cpp \
     parser.cpp
 
 HEADERS += \
         mainwindow.h \
-    InfixToPostfix.h \
     paranthesischecker.h \
     evaluateexpression.h \
     parser.h

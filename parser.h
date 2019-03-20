@@ -1,12 +1,12 @@
 #ifndef PARSER_H
 #define PARSER_H
 #include <QString>
+#include <stack>
 
-#endif // PARSER_H
-
-#define BRAC_L '('
-#define BRAC_R ')'
-
+extern std::stack<QString> ParsedStack;
+extern std::stack<QString> TempPostFixStack;
+extern std::stack<QString> OperatorHoldStack;
+extern QList<QString> List;
 
 class Parse
 {
@@ -16,8 +16,12 @@ private :
 public :
   void ParseFunction();
 
+  void GeneratePostFix();
+
   Parse(QString Expression)
   {
     this->Expression = Expression;
   }
 };
+
+#endif // PARSER_H

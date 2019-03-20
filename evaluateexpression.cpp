@@ -1,5 +1,4 @@
 #include "evaluateexpression.h"
-#include "InfixToPostfix.h"
 
 #include <stack>
 #include <QString>
@@ -20,7 +19,7 @@ QString Eval::FinalVal()
    List.append("*");
    List.append("/");
 
-   for(auto x : postfix)
+   /*for(auto x : postfix)
      {
        ExpressionStack.push(x);
      }
@@ -65,5 +64,5 @@ QString Eval::FinalVal()
 
 
     }
-  return QString::number(Result);
+  return QString::number(Result);*/
 }

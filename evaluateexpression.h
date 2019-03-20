@@ -1,16 +1,13 @@
 #ifndef EVALUATEEXPRESSION_H
 #define EVALUATEEXPRESSION_H
 
-
-#include "InfixToPostfix.h"
+#include "parser.h"
 
 #include <QString>
 
 class Eval
 {
-private :
-  QString PostfixExpression = postfix;
-
+std::stack<QString> PostFixStack = PostFixStack;
 public :
 
   QString FinalVal();
