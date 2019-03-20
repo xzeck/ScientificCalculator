@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1030</width>
-    <height>566</height>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -92,6 +92,9 @@
        <property name="text">
         <string>2</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="1" column="0">
@@ -109,6 +112,9 @@
        </property>
        <property name="text">
         <string>4</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -128,6 +134,9 @@
        <property name="text">
         <string>8</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="2" column="0">
@@ -145,6 +154,9 @@
        </property>
        <property name="text">
         <string>1</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -164,6 +176,9 @@
        <property name="text">
         <string>3</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="1" column="2">
@@ -181,6 +196,9 @@
        </property>
        <property name="text">
         <string>6</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -200,6 +218,9 @@
        <property name="text">
         <string>5</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="0" column="0">
@@ -217,6 +238,9 @@
        </property>
        <property name="text">
         <string>7</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -236,6 +260,9 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="0" column="2">
@@ -253,6 +280,9 @@
        </property>
        <property name="text">
         <string>9</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -272,6 +302,9 @@
        <property name="text">
         <string>*</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="0" column="3">
@@ -289,6 +322,9 @@
        </property>
        <property name="text">
         <string>/</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -308,6 +344,9 @@
        <property name="text">
         <string>-</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="3" column="0">
@@ -325,6 +364,9 @@
        </property>
        <property name="text">
         <string>0</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -344,6 +386,9 @@
        <property name="text">
         <string>.</string>
        </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
+       </property>
       </widget>
      </item>
      <item row="3" column="2">
@@ -361,6 +406,9 @@
        </property>
        <property name="text">
         <string>=</string>
+       </property>
+       <property name="autoRepeatDelay">
+        <number>150</number>
        </property>
       </widget>
      </item>
@@ -756,6 +804,22 @@
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <widget class="QMenu" name="menuGitHub_2">
+     <property name="title">
+      <string>GitHub</string>
+     </property>
+     <addaction name="actionAjay_Nair"/>
+     <addaction name="actionHrishikesh_Nair"/>
+    </widget>
+    <addaction name="actionAbout"/>
+    <addaction name="menuGitHub_2"/>
+    <addaction name="actionLicense"/>
+   </widget>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -766,6 +830,26 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionAjay_Nair">
+   <property name="text">
+    <string>Ajay Nair</string>
+   </property>
+  </action>
+  <action name="actionHrishikesh_Nair">
+   <property name="text">
+    <string>Hrishikesh Nair</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="text">
+    <string>License</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

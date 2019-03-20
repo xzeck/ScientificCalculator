@@ -2,11 +2,14 @@
 #include "ui_mainwindow.h"
 #include "paranthesischecker.h"
 #include "parser.h"
+#include "license.h"
 
 
 #include <evaluateexpression.h>
 #include <QMessageBox>
 #include <QDebug>
+#include <QDesktopServices>
+#include <QUrl>
 
 
 
@@ -125,4 +128,72 @@ void MainWindow::on_btDel_clicked()
 void MainWindow::on_btClr_clicked()
 {
     ui->Display->clear();
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+  QMessageBox Message;
+    QRect  Geo = MainWindow::geometry();
+    int MBoxWidth = Geo.width()/4;
+    int MBoxHeight = Geo.height()/4;
+
+    int X = Geo.x() + Geo.width()/2 - (MBoxWidth/2);
+    int Y = Geo.y() + Geo.height()/2 - (MBoxHeight/2);
+    Message.setGeometry(X,Y,MBoxWidth, MBoxHeight);
+    Message.setInformativeText("Project : Scientific Calculator\n\nAjay Nair : 402\n"\
+                               "Gladson Daniel Roy : 413\nHrishikesh Nair : 418");
+    Message.setIcon(Message.Information);
+    Message.button(Message.Ok);
+  Message.exec();
+}
+
+void MainWindow::on_actionAjay_Nair_triggered()
+{
+  if(!QDesktopServices::openUrl(QUrl("https://github.com/xzeck/",QUrl::TolerantMode)))
+     {
+       QMessageBox Message;
+       QRect  Geo = MainWindow::geometry();
+       int MBoxWidth = Geo.width()/4;
+       int MBoxHeight = Geo.height()/4;
+
+       int X = Geo.x() + Geo.width()/2 - (MBoxWidth/2);
+       int Y = Geo.y() + Geo.height()/2 - (MBoxHeight/2);
+       Message.setGeometry(X,Y,MBoxWidth, MBoxHeight);
+       Message.setInformativeText("Sorry the URL cannot be opened at this instance because a browswer"\
+                                  "cannot be found.\nYou can view the profile at \nhttps://github.com/xzeck/");
+
+       Message.setWindowTitle("cannot open browser");
+       Message.setIcon(Message.Information);
+       Message.button(Message.Ok);
+       Message.exec();
+ }
+}
+
+void MainWindow::on_actionHrishikesh_Nair_triggered()
+{
+  if(!QDesktopServices::openUrl(QUrl("https://github.com/DarkStar24",QUrl::TolerantMode)))
+      {
+        QMessageBox Message;
+        QRect  Geo = MainWindow::geometry();
+        int MBoxWidth = Geo.width()/4;
+        int MBoxHeight = Geo.height()/4;
+
+        int X = Geo.x() +  Geo.width()/2 - (MBoxWidth/2);
+        int Y = Geo.y() + Geo.height()/2 - (MBoxHeight/2);
+        Message.setGeometry(X,Y,MBoxWidth, MBoxHeight);
+        Message.setInformativeText("Sorry the URL cannot be opened at this instance because a browswer"\
+                                   "cannot be found.\nYou can view the profile at \nhttps://github.com/DarkStar24");
+
+        Message.setWindowTitle("cannot open browser");
+        Message.setIcon(Message.Information);
+        Message.button(Message.Ok);
+        Message.exec();
+  }
+}
+
+void MainWindow::on_actionLicense_triggered()
+{
+  license l;
+  l.setModal(true);
+  l.exec();
 }

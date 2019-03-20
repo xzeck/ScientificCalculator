@@ -29,16 +29,19 @@ SOURCES += \
         mainwindow.cpp \
     paranthesischecker.cpp \
     evaluateexpression.cpp \
-    parser.cpp
+    parser.cpp \
+    license.cpp
 
 HEADERS += \
         mainwindow.h \
     paranthesischecker.h \
     evaluateexpression.h \
-    parser.h
+    parser.h \
+    license.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    license.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

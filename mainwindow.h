@@ -28,6 +28,10 @@ private slots:
   void on_btEq_clicked();
   void on_btDel_clicked();
   void on_btClr_clicked();
+  void on_actionAbout_triggered();
+  void on_actionAjay_Nair_triggered();
+  void on_actionHrishikesh_Nair_triggered();
+  void on_actionLicense_triggered();
 };
 
 #endif // MAINWINDOW_H
