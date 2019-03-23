@@ -23,6 +23,7 @@ private:
 
 private slots:
   void NumPressed();
+  void SpecialbtClicked(QString);
 
 
   void on_btEq_clicked();
@@ -32,6 +33,10 @@ private slots:
   void on_actionAjay_Nair_triggered();
   void on_actionHrishikesh_Nair_triggered();
   void on_actionLicense_triggered();
+  void on_XraiseY_clicked();
+  void on_Xraise2_clicked();
+  void on_Xraise3_clicked();
+  void on_SQRT_clicked();
 };
 
 #endif // MAINWINDOW_H

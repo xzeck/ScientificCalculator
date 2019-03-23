@@ -10,6 +10,9 @@
 #include <QDebug>
 #include <QDesktopServices>
 #include <QUrl>
+#include <math.h>
+#include <QString>
+
 
 
 
@@ -54,7 +57,9 @@ MainWindow::MainWindow(QWidget *parent) :
   MathButton = MainWindow::findChild<QPushButton *>("btBrac_Left");
   connect(MathButton, SIGNAL(released()), this, SLOT(NumPressed()));
 
-  //TODO : Connect the signals for the rest of the buttons
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -196,4 +201,88 @@ void MainWindow::on_actionLicense_triggered()
   license l;
   l.setModal(true);
   l.exec();
+}
+
+
+void MainWindow::on_XraiseY_clicked()
+{
+     ui->Display->setText(ui->Display->text() + "^");
+}
+
+void MainWindow::SpecialbtClicked(QString Exp)
+{
+
+    Checker c(Exp);
+    Eval E;
+    QString ExpressionToParse ="(";
+    ExpressionToParse += Exp;
+    ExpressionToParse += ")";
+
+    Parse P(ExpressionToParse);
+
+    if(c.HasBalancedParanthesis())
+      {
+        P.ParseFunction();
+        QString Val = E.FinalVal();
+        HistoryString += Exp + " = " + Val+"\n";
+        ui->Display->setText(Val);
+        ui->HistoryLabel->setText(HistoryString);
+      }
+    else
+      {
+        //FIXME : Fix the geometry of the Error Box
+        QMessageBox MB;
+        MB.setText("Syntax Error");
+        MB.setIcon(MB.Warning);
+        MB.setInformativeText("Entered Input doesn't have balanced paranthesis");
+        MB.setGeometry((MainWindow::x()+MainWindow::width()/2), (MainWindow::y()+MainWindow::height()/2),
+                       (MainWindow::width()/3), (MainWindow::height()/3));
+        MB.exec();
+      }
+}
+
+void MainWindow::on_Xraise2_clicked()
+{
+
+  QString Exp = ui->Display->text() + "^2";
+  SpecialbtClicked(Exp);
+}
+
+void MainWindow::on_Xraise3_clicked()
+{
+  QString Exp = ui->Display->text() + "^3";
+  SpecialbtClicked(Exp);
+}
+
+void MainWindow::on_SQRT_clicked()
+{
+  QString Exp = ui->Display->text();
+  Checker c(Exp);
+  Eval E;
+  QString ExpressionToParse ="(";
+  ExpressionToParse += Exp;
+  ExpressionToParse += ")";
+
+  Parse P(ExpressionToParse);
+
+  if(c.HasBalancedParanthesis())
+    {
+      P.ParseFunction();
+      QString Val = E.FinalVal();
+      Val = QString::number(sqrtf64(Val.toDouble()));
+      HistoryString += "SQRT(" + Exp + ") = " + Val+"\n";
+      ui->Display->setText(Val);
+      ui->HistoryLabel->setText(HistoryString);
+    }
+  else
+    {
+      //FIXME : Fix the geometry of the Error Box
+      QMessageBox MB;
+      MB.setText("Syntax Error");
+      MB.setIcon(MB.Warning);
+      MB.setInformativeText("Entered Input doesn't have balanced paranthesis");
+      MB.setGeometry((MainWindow::x()+MainWindow::width()/2), (MainWindow::y()+MainWindow::height()/2),
+                     (MainWindow::width()/3), (MainWindow::height()/3));
+      MB.exec();
+    }
 }

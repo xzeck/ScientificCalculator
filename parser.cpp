@@ -18,7 +18,7 @@ std::stack<QString> TempPostFixStack; //Used to store the Reversed Post Fix Stac
 std::stack<QString> PostFixStack; //Stores the actucal Post Fix in RPN
 std::stack<QString> OperatorHoldStack; // Temporary stack to hold the operators while performing shunting yard algorithm
 std::stack<QString> TemporaryParsedStack; //Holds the temporary parsed value
-QList<QString> List;
+
 
 void Parse::ParseFunction()
 {
@@ -28,12 +28,6 @@ void Parse::ParseFunction()
 
   QString GeneratedParseString; //Used to store the entire digits from start till a new operator is reached
   bool IsParsedStringFull = false; //Checks is a parsed string has hit an operator or not
-
-  //List used to check if a token is an operator or not
-  List.append("+");
-  List.append("-");
-  List.append("*");
-  List.append("/");
 
   //This part is required so that the calculator can handle double digits when it generates its postfix expression
   for(auto x : Exp)
@@ -147,7 +141,7 @@ bool HasHigherPrecedence(QString op1, QString op2)
 
   //qDebug() << "op1 wt : " << op1wt << "op2 wt : " << op2wt;
 
-  return op1wt > op2wt; // return true or false
+  return op1wt >= op2wt; // return true or false
 }
 
 //Return the operator weight
