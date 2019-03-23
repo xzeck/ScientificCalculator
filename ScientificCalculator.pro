@@ -25,23 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    paranthesischecker.cpp \
-    evaluateexpression.cpp \
-    parser.cpp \
-    license.cpp
+	sources/main.cpp \
+	sources/mainwindow.cpp \
+    sources/paranthesischecker.cpp \
+    sources/evaluateexpression.cpp \
+    sources/parser.cpp \
+    sources/license.cpp
 
 HEADERS += \
-        mainwindow.h \
-    paranthesischecker.h \
-    evaluateexpression.h \
-    parser.h \
-    license.h
+	headers/mainwindow.h \
+    headers/paranthesischecker.h \
+    headers/evaluateexpression.h \
+    headers/parser.h \
+    headers/license.h
 
 FORMS += \
-        mainwindow.ui \
-    license.ui
+	forms/mainwindow.ui \
+    forms/license.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

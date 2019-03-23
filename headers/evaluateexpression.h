@@ -1,8 +1,6 @@
 #ifndef EVALUATEEXPRESSION_H
 #define EVALUATEEXPRESSION_H
 
-#include "parser.h"
-
 #include <QString>
 
 class Eval
@@ -10,8 +8,6 @@ class Eval
 public :
 
   QString FinalVal();
-
-
 };
 
 

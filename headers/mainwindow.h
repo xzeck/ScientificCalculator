@@ -1,6 +1,5 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
 #include <QMainWindow>
 
 
@@ -23,7 +22,7 @@ private:
 
 private slots:
   void NumPressed();
-  void SpecialbtClicked(QString);
+  QString SpecialbtClicked(QString);
 
 
   void on_btEq_clicked();
@@ -37,6 +36,14 @@ private slots:
   void on_Xraise2_clicked();
   void on_Xraise3_clicked();
   void on_SQRT_clicked();
+  void on_Pi_clicked();
+  void on_btSin_clicked();
+  void on_NFact_clicked();
+  void on_Log_clicked();
+  void on_Ln_clicked();
+  void on_btCos_clicked();
+  void on_btTan_clicked();
+  void on_InverseX_clicked();
 };
 
 #endif // MAINWINDOW_H

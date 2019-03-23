@@ -1,4 +1,5 @@
-#include "parser.h"
+#include "headers/parser.h"
+
 #include <QDebug>
 #include <QString>
 #include <stack>

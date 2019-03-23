@@ -1,5 +1,5 @@
-#include "evaluateexpression.h"
-#include "parser.h"
+#include "headers/evaluateexpression.h"
+#include "headers/parser.h"
 
 #include <stack>
 #include <QString>

@@ -1,4 +1,4 @@
-#include "paranthesischecker.h"
+#include "headers/paranthesischecker.h"
 
 
 bool Checker::HasBalancedParanthesis()
