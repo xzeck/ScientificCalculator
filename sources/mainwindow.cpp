@@ -362,6 +362,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
       ui->btEq->animateClick();
       break;
 
+    case 16777219:
+      ui->btDel->animateClick();
+      break;
+
      case 94:
       ui->XraiseY->animateClick();
       break;
