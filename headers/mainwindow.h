@@ -19,6 +19,7 @@ public:
 private:
   Ui::MainWindow *ui;
   QString HistoryString = "";
+  void keyPressEvent(QKeyEvent *event);
 
 private slots:
   void NumPressed();
